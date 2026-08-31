@@ -1,0 +1,15 @@
+# Eval run artifacts (regenerated, not part of the skill)
+../high-converting-email-workspace/
+high-converting-email-workspace/
+*-workspace/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc

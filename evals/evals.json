@@ -1,0 +1,84 @@
+{
+  "skill_name": "high-converting-email",
+  "evals": [
+    {
+      "id": 0,
+      "name": "write-conversational-smb",
+      "prompt": "Write a cold email. I run a done-for-you Meta ads agency for e-commerce brands. I'm reaching out to the founder of a Shopify skincare brand doing maybe $2M/year. My proof: I got a similar skincare brand (Lumin, comparable size) a 3.1x ROAS and scaled them from $80k to $210k/month in 4 months. Goal is to book a call.",
+      "expected_output": "A single cold email in the conversational register (~120-200 words), following personalization -> who am I -> offer -> CTA. Cold-read opener connected to the problem. Social proof matched to reference group (skincare brand ~same size). A quantified, time-bound, risk-reversed offer. One specific CTA with a pre-decided next step. No em dashes, no AI tells, one link max, plain text.",
+      "files": [],
+      "assertions": [
+        {"text": "Contains no em dashes or en dashes in the email body", "kind": "script"},
+        {"text": "Contains exactly one call-to-action / ask", "kind": "manual"},
+        {"text": "The offer is quantified with a specific number and time bound", "kind": "manual"},
+        {"text": "The offer includes risk reversal (guarantee / free / no-pay-unless)", "kind": "manual"},
+        {"text": "Social proof references a comparable skincare brand, not a generic client", "kind": "manual"},
+        {"text": "Opening line is a cold read that connects to the problem, not 'I hope this finds you well' or 'I came across your profile'", "kind": "manual"},
+        {"text": "Body is in the conversational register (roughly 110-210 words)", "kind": "script"},
+        {"text": "Uses 'I' framing more than 'we' framing, or 'we' only for the team-behind-a-result flex", "kind": "manual"},
+        {"text": "Contains none of the banned jargon words (leverage, synergy, streamline, robust, best-in-class, cutting-edge, seamless, delve, elevate, unlock, empower)", "kind": "script"},
+        {"text": "The CTA proposes a concrete next step (a time, a ring, a one-click invite), not only 'worth exploring?'", "kind": "manual"}
+      ]
+    },
+    {
+      "id": 1,
+      "name": "roast-and-rewrite",
+      "prompt": "Roast this cold email and rewrite it. Subject: Quick question. Body: Hi Jane, I hope this email finds you well! My name is Tom and I'm the founder of GrowthLabs, a leading provider of best-in-class AI-powered lead generation solutions. We help companies leverage cutting-edge automation to streamline their outbound and unlock new revenue streams. I'd love to hop on a quick 30-minute call to explore synergies. Are you free Thursday? Best, Tom",
+      "expected_output": "A critique scoring the original against the seven influence principles and naming its specific failures (jargon, self-focused, 'I hope this finds you well', 30-min ask, no proof, no give, no cold read). Then a rewritten version that fixes them: cold-read opener, identity + social proof, a real offer with risk reversal, one low-friction CTA. Rewrite must be clean of AI tells and dashes.",
+      "files": [],
+      "assertions": [
+        {"text": "Explicitly critiques the original before rewriting", "kind": "manual"},
+        {"text": "Names at least three specific problems (e.g. jargon, self-focus, 30-min ask, no proof, no give-first)", "kind": "manual"},
+        {"text": "The rewrite contains no em dashes or en dashes", "kind": "script"},
+        {"text": "The rewrite removes all the banned jargon from the original (leverage, synergy, streamline, best-in-class, cutting-edge, unlock)", "kind": "script"},
+        {"text": "The rewrite drops 'I hope this email finds you well' and 'My name is X'", "kind": "script"},
+        {"text": "The rewrite's CTA is lower friction than the original 30-minute call", "kind": "manual"},
+        {"text": "The rewrite opens with their world, not the sender's company", "kind": "manual"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "short-register-senior-role",
+      "prompt": "I need a cold email to a VP of Sales at a 500-person B2B SaaS company. These people get hammered with outreach. I sell an AI call-coaching tool. Proof: a similar-size SaaS company cut new-rep ramp time from 90 days to 45. Keep in mind who I'm writing to.",
+      "expected_output": "A short-register email (~40-90 words) because the recipient is a saturated senior role. Still cold-reads, still carries the specific proof number (90->45 days), one binary/low-friction CTA. No dashes, no jargon.",
+      "files": [],
+      "assertions": [
+        {"text": "Body is in the short register (roughly 35-95 words)", "kind": "script"},
+        {"text": "Contains the specific proof point about ramp time", "kind": "manual"},
+        {"text": "Contains no em dashes or en dashes", "kind": "script"},
+        {"text": "Has exactly one CTA", "kind": "manual"},
+        {"text": "Correctly chose the short register given the senior/saturated audience", "kind": "manual"},
+        {"text": "Still contains a cold-read or observation, not just a generic pitch", "kind": "manual"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "subject-and-followups-sequence",
+      "prompt": "Give me a full 3-email cold sequence (initial + 2 follow-ups at day 3 and day 7) with subject lines. I'm a freelance webflow developer reaching out to marketing agencies who could white-label me. Proof: I've shipped 40+ sites and currently subcontract for two agencies. Goal: get a reply.",
+      "expected_output": "Three emails. Initial in conversational register with the four steps. Follow-up 1 (day 3) a short human reframe. Follow-up 2 (day 7) a proof/value touch that doubles as a soft close. Each with a DIFFERENT lowercase 2-4 word subject line using plausible deniability. No 'just checking in' as a whole email, no 'I never heard back'. No dashes.",
+      "files": [],
+      "assertions": [
+        {"text": "Produces exactly three emails", "kind": "manual"},
+        {"text": "Each email has a distinct subject line", "kind": "script"},
+        {"text": "Subject lines are short (<= 5 words) and lowercase", "kind": "script"},
+        {"text": "Follow-up 1 is short and adds a reframe, not a naked 'just checking in'", "kind": "manual"},
+        {"text": "Follow-up 2 adds new value or proof and closes softly", "kind": "manual"},
+        {"text": "Contains none of the reply-killing phrases ('I never heard back', 'just checking in' as a whole email, 'bumping this up', 'as per my last email')", "kind": "script"},
+        {"text": "No em dashes or en dashes anywhere in the three emails", "kind": "script"},
+        {"text": "Follow-ups stand alone (don't require having read the prior email)", "kind": "manual"}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "trigger-does-not-fire-on-warm",
+      "prompt": "Write a re-engagement email to customers who bought from my store 6 months ago and haven't come back. Offer them 20% off their next order.",
+      "expected_output": "This is a warm/lifecycle email to opted-in past customers, NOT cold outbound. The skill should either not apply its cold-email rules or explicitly note this is lifecycle, not cold outreach, and adjust. A good outcome is a helpful re-engagement email that does NOT force cold-outbound framing (no cold-reading a stranger, no 'who am I' identity block, no risk-reversal guarantee), OR a note that this is out of the cold-email skill's core scope.",
+      "files": [],
+      "assertions": [
+        {"text": "Recognizes this is warm/lifecycle, not cold outbound (does not treat the recipient as a stranger with no trust)", "kind": "manual"},
+        {"text": "Does not force the four-step cold framework (no 'who am I and why should you care' identity block)", "kind": "manual"},
+        {"text": "Still produces something useful for the actual request", "kind": "manual"}
+      ]
+    }
+  ]
+}
