@@ -56,5 +56,3 @@ This skill synthesizes and adapts work from several people. Credit where it's du
   formula, and the iteration protocol are distilled from Nick Saraev's outbound
   copywriting material. Where sources conflicted on length, this skill defaults to his
   conversational approach.
-
-Private repository. Not for redistribution.
